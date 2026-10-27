@@ -5,47 +5,458 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nhóm 6 | Tin học</title>
 <style>
-body{margin:0;font:16px/1.6 Arial,sans-serif;color:#182238;background:#f5f7fb}
-header,footer{background:#14213d;color:white;padding:18px 6%}
-nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
-a{color:inherit}nav a{text-decoration:none;margin-left:16px}
-.hero{padding:56px 6%;background:#243b67;color:white}
-.hero h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.1;margin:12px 0}
-.hero p{max-width:620px}
-.hero img{display:block;max-width:min(100%,600px);height:auto;margin:28px auto 0;border-radius:8px}
-main{max-width:1000px;margin:auto;padding:36px 20px}
-h2{margin-bottom:8px}.members,.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.member,.lesson{background:white;border:1px solid #e0e5ed;border-radius:8px;padding:16px}
-.lesson{text-decoration:none}.lesson:hover{border-color:#5267e8}
-section{margin-bottom:40px}
-footer{font-size:14px}
+  :root{
+    --navy:#14213d;
+    --navy-2:#243b67;
+    --accent:#5267e8;
+    --accent-soft:#eef1ff;
+    --ink:#182238;
+    --muted:#5b6785;
+    --line:#e0e5ed;
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --radius:14px;
+    --shadow:0 6px 24px rgba(20,33,61,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font:16px/1.65 'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{max-width:100%;display:block}
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--navy);
+    color:#fff;
+    padding:16px 6%;
+    position:sticky;top:0;z-index:10;
+    box-shadow:0 1px 0 rgba(255,255,255,.06);
+  }
+  nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  nav .brand{font-weight:800;letter-spacing:.5px;font-size:1.05rem}
+  nav .brand span{color:#8ea0ff}
+  nav .links{display:flex;gap:6px;flex-wrap:wrap}
+  nav .links a{
+    color:#dfe4f5;padding:8px 14px;border-radius:999px;
+    font-size:.92rem;font-weight:600;transition:.2s;
+  }
+  nav .links a:hover{background:rgba(255,255,255,.1);color:#fff;text-decoration:none}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--navy-2),#1a2c4f 60%,#16233f);
+    color:#fff;
+    padding:64px 6% 72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:auto -80px -120px auto;
+    width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,rgba(82,103,232,.55),transparent 70%);
+    pointer-events:none;
+  }
+  .hero .eyebrow{
+    display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:2px;
+    text-transform:uppercase;color:#a9b6ff;
+    background:rgba(82,103,232,.15);padding:6px 14px;border-radius:999px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,6.5vw,3.8rem);
+    line-height:1.08;margin:18px 0 14px;letter-spacing:-1px;
+  }
+  .hero p{max-width:640px;color:#c8d1e8;font-size:1.05rem;margin:0 0 26px}
+  .hero .cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent);color:#fff;font-weight:700;
+    padding:13px 26px;border-radius:999px;
+    transition:.2s;box-shadow:0 8px 24px rgba(82,103,232,.35);
+  }
+  .hero .cta:hover{transform:translateY(-2px);text-decoration:none;box-shadow:0 12px 30px rgba(82,103,232,.5)}
+  .hero .hero-img{
+    margin-top:40px;border-radius:var(--radius);
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
+    max-height:420px;object-fit:cover;width:100%;
+  }
+
+  /* ---------- Main ---------- */
+  main{max-width:1040px;margin:auto;padding:48px 20px 20px}
+  section{margin-bottom:56px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+  h2{font-size:1.6rem;margin:0;letter-spacing:-.3px}
+  .section-head p{margin:0;color:var(--muted);font-size:.95rem}
+
+  /* ---------- Members grid ---------- */
+  .members{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:16px;
+    margin-top:20px;
+  }
+  .member{
+    display:flex;align-items:center;gap:14px;
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:14px 16px;
+    color:var(--ink);transition:.22s;
+    box-shadow:0 1px 2px rgba(20,33,61,.04);
+  }
+  .member:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+    text-decoration:none;
+  }
+  .member .ava{
+    width:54px;height:54px;border-radius:50%;
+    object-fit:cover;flex:none;
+    border:2px solid var(--accent-soft);
+    background:#eef1ff;
+  }
+  .member .info{min-width:0}
+  .member .name{font-weight:700;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .member .meta{font-size:.82rem;color:var(--muted);margin-top:2px}
+  .member .arrow{margin-left:auto;color:var(--accent);font-weight:700;flex:none}
+
+  /* ---------- Lessons grid ---------- */
+  .lessons{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:14px;margin-top:20px;
+  }
+  .lesson{
+    display:flex;flex-direction:column;justify-content:space-between;gap:14px;
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px;
+    color:var(--ink);font-weight:600;transition:.22s;
+    box-shadow:0 1px 2px rgba(20,33,61,.04);
+    position:relative;overflow:hidden;
+  }
+  .lesson::before{
+    content:"";position:absolute;top:0;left:0;height:4px;width:100%;
+    background:linear-gradient(90deg,var(--accent),#8ea0ff);
+    transform:scaleX(0);transform-origin:left;transition:transform .25s;
+  }
+  .lesson:hover{
+    border-color:var(--accent);transform:translateY(-3px);
+    box-shadow:var(--shadow);text-decoration:none;
+  }
+  .lesson:hover::before{transform:scaleX(1)}
+  .lesson .tag{
+    display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.5px;
+    color:var(--accent);background:var(--accent-soft);
+    padding:3px 10px;border-radius:999px;width:fit-content;
+  }
+  .lesson .title{line-height:1.4}
+  .lesson .go{font-size:.85rem;color:var(--muted);font-weight:600}
+
+  /* ---------- About member ---------- */
+  .about-wrap{max-width:760px;margin:auto;padding:56px 20px 20px}
+  .breadcrumb{font-size:.9rem;color:var(--muted);margin-bottom:24px}
+  .breadcrumb a{color:var(--muted)}
+  .about-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:22px;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .about-cover{
+    height:130px;
+    background:linear-gradient(135deg,var(--navy-2),#1a2c4f 55%,var(--accent));
+    position:relative;
+  }
+  .about-body{padding:0 32px 34px;text-align:center;margin-top:-64px}
+  .about-avatar{
+    width:132px;height:132px;border-radius:50%;
+    object-fit:cover;margin:0 auto;
+    border:5px solid #fff;
+    background:#eef1ff;
+    box-shadow:0 8px 24px rgba(20,33,61,.18);
+  }
+  .about-body h1{font-size:1.9rem;margin:18px 0 6px;letter-spacing:-.4px}
+  .about-body .sub{color:var(--muted);font-size:1rem;margin:0 0 26px}
+  .about-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:14px;text-align:left;margin-top:8px;
+  }
+  .fact{
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;
+  }
+  .fact .label{
+    font-size:.72rem;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;color:var(--muted);margin-bottom:4px;
+  }
+  .fact .value{font-weight:600;word-break:break-word;font-size:.98rem}
+  .fact .value a{font-weight:600}
+  .about-actions{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:999px;font-weight:700;font-size:.92rem;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:#3f52d6;text-decoration:none}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+
+  /* ---------- Not found ---------- */
+  .notfound{text-align:center;padding:80px 20px}
+  .notfound .big{font-size:5rem;line-height:1;margin:0;color:var(--accent)}
+  .notfound h1{font-size:1.8rem;margin:16px 0 8px}
+  .notfound p{color:var(--muted);margin:0 0 24px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy);color:#a9b6d8;
+    padding:28px 6%;font-size:.88rem;text-align:center;
+  }
+  footer strong{color:#fff}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:640px){
+    .hero{padding:44px 6% 52px}
+    main{padding:32px 16px 10px}
+    .about-body{padding:0 18px 26px}
+    .about-avatar{width:110px;height:110px}
+    h2{font-size:1.35rem}
+  }
 </style>
 </head>
 <body>
-<header><nav><strong>NHÓM 6</strong><div><a href="#thanh-vien">Thành viên</a><a href="#bai-hoc">Bài học</a></div></nav></header>
-<section class="hero">
-  <span>TIN HỌC · HỌC TẬP & THỰC HÀNH</span>
-  <h1>Cùng học hỏi.<br>Cùng phát triển.</h1>
-  <p>Chào mừng đến với không gian học tập của Nhóm 6 — nơi tổng hợp các bài luyện tập và kiến thức Tin học.</p>
-  <a href="#bai-hoc">Khám phá bài học ↓</a>
-  <img src="images/image1.png" alt="Hình ảnh của Nhóm 6">
-</section>
-<main>
-<section id="thanh-vien"><h2>Thành viên nhóm</h2><p>Sáu thành viên cùng nhau hoàn thành các bài thực hành.</p>
-<div class="members">
-<div class="member">Nguyễn Hữu Hòa</div><div class="member">Trần Nguyễn Bình An</div><div class="member">Hồ Tuấn Khải</div><div class="member">Ngô Thanh Nhân</div><div class="member">Lý Gia Phúc</div><div class="member">Nguyễn Huỳnh Hải Đăng</div>
-</div></section>
-<section id="bai-hoc"><h2>Bài luyện tập & vận dụng</h2><p>Chọn bài học để mở nội dung tương ứng.</p>
-<div class="lessons">
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai3/Nhm6Tin.html" target="_blank" rel="noopener">Bài 3: Một số thiết bị mạng thông dụng ↗</a>
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai4/Nhm6Tin.html" target="_blank" rel="noopener">Bài 4: Giao thức mạng ↗</a>
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai5/Nhm6Tin.html" target="_blank" rel="noopener">Bài 5: Thực hành chia sẻ tài nguyên trên mạng ↗</a>
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai6/Nhm6Tin.html" target="_blank" rel="noopener">Bài 6: Giao tiếp và ứng xử trong không gian mạng ↗</a>
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai7/Nhm6Tin.html" target="_blank" rel="noopener">Bài 7: HTML và cấu trúc trang web ↗</a>
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai8/Nhm6Tin.html" target="_blank" rel="noopener">Bài 8: Định dạng văn bản ↗</a>
-<a class="lesson" href="https://kyle6317.github.io/nhom-6/bai9/Nhm6Tin.html" target="_blank" rel="noopener">Bài 9: Tạo danh sách, bảng ↗</a>
-</div></section>
-</main>
-<footer>© <span id="year">2026</span> Nhóm 6 · Website học tập Tin học</footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-</body></html>
+
+<header>
+  <nav>
+    <div class="brand">NHÓM <span>6</span></div>
+    <div class="links">
+      <a href="index.html">Trang chủ</a>
+      <a href="index.html#thanh-vien">Thành viên</a>
+      <a href="index.html#bai-hoc">Bài học</a>
+    </div>
+  </nav>
+</header>
+
+<main id="app"><!-- Render động --></main>
+
+<footer>© <span id="year">2026</span> <strong>Nhóm 6</strong> · Website học tập Tin học</footer>
+
+<script>
+/* ============================================================
+   DỮ LIỆU THÀNH VIÊN (nhúng từ CSV)
+   ============================================================ */
+const MEMBERS = [
+  {
+    name: "Nguyễn Hữu Hòa",
+    slug: "nguyen-huu-hoa",
+    birthday: "13/07/2009",
+    className: "12L",
+    email: "nguyenhuuhoa@proton.me",
+    avatar: "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Nice_to_Meet_You_Avatar.png/revision/latest/thumbnail/width/360/height/360?cb=20240424015652"
+  },
+  {
+    name: "Hồ Tuấn Khải",
+    slug: "ho-tuan-khai",
+    birthday: "02/11/2009",
+    className: "12L",
+    email: "Kary@gmail.com",
+    avatar: "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Nice_to_Meet_You_Avatar.png/revision/latest/thumbnail/width/360/height/360?cb=20240424015653"
+  },
+  {
+    name: "Trần Nguyễn Bình An",
+    slug: "tran-nguyen-binh-an",
+    birthday: "09/09/2009",
+    className: "12L",
+    email: "binhan29@gmail.com",
+    avatar: "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Nice_to_Meet_You_Avatar.png/revision/latest/thumbnail/width/360/height/360?cb=20240424015654"
+  },
+  {
+    name: "Ngô Thanh Nhân",
+    slug: "ngo-thanh-nhan",
+    birthday: "07/03/2009",
+    className: "12L",
+    email: "nguyenthanhnhann@gmail.com",
+    avatar: "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Nice_to_Meet_You_Avatar.png/revision/latest/thumbnail/width/360/height/360?cb=20240424015655"
+  },
+  {
+    name: "Lý Gia Phúc",
+    slug: "ly-gia-phuc",
+    birthday: "09/02/2009",
+    className: "12L",
+    email: "lyphucs1@gmail.com",
+    avatar: "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Nice_to_Meet_You_Avatar.png/revision/latest/thumbnail/width/360/height/360?cb=20240424015656"
+  },
+  {
+    name: "Nguyễn Huỳnh Hải Đăng",
+    slug: "nguyen-huynh-hai-dang",
+    birthday: "17/04/2009",
+    className: "12L",
+    email: "haidang123@gmail.com",
+    avatar: "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Nice_to_Meet_You_Avatar.png/revision/latest/thumbnail/width/360/height/360?cb=20240424015657"
+  }
+];
+
+/* ============================================================
+   DANH SÁCH BÀI HỌC
+   ============================================================ */
+const LESSONS = [
+  { tag: "Bài 3", title: "Một số thiết bị mạng thông dụng", url: "https://kyle6317.github.io/nhom-6/bai3/Nhm6Tin.html" },
+  { tag: "Bài 4", title: "Giao thức mạng", url: "https://kyle6317.github.io/nhom-6/bai4/Nhm6Tin.html" },
+  { tag: "Bài 5", title: "Thực hành chia sẻ tài nguyên trên mạng", url: "https://kyle6317.github.io/nhom-6/bai5/Nhm6Tin.html" },
+  { tag: "Bài 6", title: "Giao tiếp và ứng xử trong không gian mạng", url: "https://kyle6317.github.io/nhom-6/bai6/Nhm6Tin.html" },
+  { tag: "Bài 7", title: "HTML và cấu trúc trang web", url: "https://kyle6317.github.io/nhom-6/bai7/Nhm6Tin.html" },
+  { tag: "Bài 8", title: "Định dạng văn bản", url: "https://kyle6317.github.io/nhom-6/bai8/Nhm6Tin.html" },
+  { tag: "Bài 9", title: "Tạo danh sách, bảng", url: "https://kyle6317.github.io/nhom-6/bai9/Nhm6Tin.html" }
+];
+
+/* ============================================================
+   TIỆN ÍCH
+   ============================================================ */
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => (
+  { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]
+));
+
+function findMemberBySlug(slug){
+  return MEMBERS.find(m => m.slug === slug);
+}
+
+/* ============================================================
+   RENDER: TRANG CHỦ
+   ============================================================ */
+function renderHome(){
+  const memberCards = MEMBERS.map(m => `
+    <a class="member" href="?thanh-vien=${encodeURIComponent(m.slug)}">
+      <img class="ava" src="${esc(m.avatar)}" alt="Ảnh đại diện ${esc(m.name)}" loading="lazy">
+      <div class="info">
+        <div class="name">${esc(m.name)}</div>
+        <div class="meta">${esc(m.className)} · ${esc(m.birthday)}</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  `).join("");
+
+  const lessonCards = LESSONS.map(l => `
+    <a class="lesson" href="${esc(l.url)}" target="_blank" rel="noopener">
+      <span class="tag">${esc(l.tag)}</span>
+      <span class="title">${esc(l.title)}</span>
+      <span class="go">Mở bài học ↗</span>
+    </a>
+  `).join("");
+
+  document.title = "Nhóm 6 | Tin học";
+
+  document.getElementById("app").outerHTML = `
+    <section class="hero">
+      <span class="eyebrow">Tin học · Học tập & Thực hành</span>
+      <h1>Cùng học hỏi.<br>Cùng phát triển.</h1>
+      <p>Chào mừng đến với không gian học tập của Nhóm 6 — nơi tổng hợp các bài luyện tập và kiến thức Tin học.</p>
+      <a class="cta" href="#bai-hoc">Khám phá bài học ↓</a>
+    </section>
+
+    <main>
+      <section id="thanh-vien">
+        <div class="section-head">
+          <h2>Thành viên nhóm</h2>
+          <p>Sáu thành viên cùng nhau hoàn thành các bài thực hành.</p>
+        </div>
+        <div class="members">${memberCards}</div>
+      </section>
+
+      <section id="bai-hoc">
+        <div class="section-head">
+          <h2>Bài luyện tập & vận dụng</h2>
+          <p>Chọn bài học để mở nội dung tương ứng.</p>
+        </div>
+        <div class="lessons">${lessonCards}</div>
+      </section>
+    </main>
+  `;
+}
+
+/* ============================================================
+   RENDER: TRANG ABOUT THÀNH VIÊN
+   ============================================================ */
+function renderMember(member){
+  document.title = `${member.name} | Nhóm 6`;
+
+  document.getElementById("app").outerHTML = `
+    <div class="about-wrap">
+      <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a> / <a href="index.html#thanh-vien">Thành viên</a> / ${esc(member.name)}
+      </div>
+
+      <article class="about-card">
+        <div class="about-cover"></div>
+        <div class="about-body">
+          <img class="about-avatar" src="${esc(member.avatar)}" alt="Ảnh đại diện ${esc(member.name)}">
+          <h1>${esc(member.name)}</h1>
+          <p class="sub">Thành viên Nhóm 6 · Lớp ${esc(member.className)}</p>
+
+          <div class="about-grid">
+            <div class="fact">
+              <div class="label">Ngày sinh</div>
+              <div class="value">${esc(member.birthday)}</div>
+            </div>
+            <div class="fact">
+              <div class="label">Lớp</div>
+              <div class="value">${esc(member.className)}</div>
+            </div>
+            <div class="fact">
+              <div class="label">Email</div>
+              <div class="value"><a href="mailto:${esc(member.email)}">${esc(member.email)}</a></div>
+            </div>
+          </div>
+
+          <div class="about-actions">
+            <a class="btn btn-primary" href="mailto:${esc(member.email)}">✉ Liên hệ qua email</a>
+            <a class="btn btn-ghost" href="index.html">← Về trang chủ</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  `;
+}
+
+/* ============================================================
+   RENDER: KHÔNG TÌM THẤY
+   ============================================================ */
+function renderNotFound(slug){
+  document.title = "Không tìm thấy thành viên | Nhóm 6";
+
+  document.getElementById("app").outerHTML = `
+    <div class="notfound">
+      <p class="big">404</p>
+      <h1>Không tìm thấy thành viên</h1>
+      <p>Không có thành viên nào khớp với <code>?thanh-vien=${esc(slug)}</code>.</p>
+      <div class="about-actions">
+        <a class="btn btn-primary" href="index.html">← Về trang chủ</a>
+        <a class="btn btn-ghost" href="index.html#thanh-vien">Xem danh sách thành viên</a>
+      </div>
+    </div>
+  `;
+}
+
+/* ============================================================
+   ĐIỀU HƯỚNG DỰA TRÊN QUERY STRING
+   ============================================================ */
+(function init(){
+  const params = new URLSearchParams(location.search);
+  const slug = params.get("thanh-vien");
+
+  if (!slug){
+    renderHome();
+  } else {
+    const member = findMemberBySlug(slug);
+    if (member) renderMember(member);
+    else renderNotFound(slug);
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
