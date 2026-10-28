@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhóm 6 — Bài tập Lập trình Web</title>
+    <script>document.documentElement.className = 'js'</script>
+    <style>
+      html, body { height: 100%; }
+
+      body {
+        margin: 0;
+        background: #10141f;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+
+      iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Màn hình chờ hiện lúc iframe chưa tải xong lần đầu */
+      .loading {
+        display: none;
+        position: fixed;
+        inset: 0;
+        place-items: center;
+        color: #8ea0c9;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+      }
+
+      .js .loading { display: grid; }
+      .loaded .loading { display: none; }
+    </style>
+  </head>
+  <body>
+    <p class="loading">Đang tải trang của nhóm…</p>
+    <iframe id="app" src="https://nhom-6.pages.dev/" title="Trang bài tập của nhóm"></iframe>
+
+    <script>
+      // ===== Cấu hình =====
+      const SITE = 'https://nhom-6.pages.dev' // site thật đang chạy trên Cloudflare Pages
+      const PARAM = 'p' // URL github.io dạng home.html?p=<đường dẫn của site con>
+
+      const iframe = document.getElementById('app')
+
+      // Đường dẫn site con được ghi trong URL trình duyệt,
+      // ví dụ /thanh-vien.html?m=le-cam-li
+      const pathInUrl = () => new URLSearchParams(location.search).get(PARAM) ?? ''
+
+      // Ghi đường dẫn của iframe ngược lại URL trình duyệt.
+      // Dùng replaceState để không làm "rối" nút back của trình duyệt.
+      function syncBrowserUrl(href) {
+        const url = new URL(location.href)
+        if (href === '/' || href === '') url.searchParams.delete(PARAM)
+        else url.searchParams.set(PARAM, href)
+        history.replaceState(null, '', url)
+      }
+
+      // Mở iframe đúng trang theo ?p= (nếu có) — để link chia sẻ mở đúng chỗ
+      iframe.src = SITE + (pathInUrl() || '/')
+
+      // Nhận URL do trang con gửi lên qua postMessage
+      let lastHref = null
+      window.addEventListener('message', (e) => {
+        if (e.origin !== SITE) return // bỏ qua message từ nguồn lạ
+        const d = e.data
+        if (!d || d.type !== 'bt-nhom:url' || typeof d.href !== 'string') return
+        lastHref = d.href
+        syncBrowserUrl(d.href)
+        if (typeof d.title === 'string') document.title = d.title
+      })
+
+      // Bấm back/forward trên URL gốc thì kéo iframe theo trang tương ứng
+      window.addEventListener('popstate', () => {
+        const href = pathInUrl() || '/'
+        if (href !== lastHref) iframe.src = SITE + href
+      })
+
+      // Tắt màn hình chờ khi iframe tải xong
+      iframe.addEventListener('load', () => document.body.classList.add('loaded'))
+    </script>
+  </body>
+</html>

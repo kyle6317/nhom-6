@@ -1,4 +1,5 @@
 import './style.css'
+import './lib/iframe-sync.js'
 import { members } from './lib/data.js'
 import { renderMarkdown } from './lib/md.js'
 import { esc, avatarFallback } from './lib/utils.js'

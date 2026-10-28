@@ -1,4 +1,5 @@
 import './style.css'
+import './lib/iframe-sync.js'
 import { members, assignments } from './lib/data.js'
 import { esc, avatarFallback, badgeClass } from './lib/utils.js'
 

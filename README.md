@@ -116,8 +116,28 @@ npm run build
 
 Toàn bộ trang nằm trong `dist/`. Vì `vite.config.js` đã đặt `base: './'` (đường dẫn tương đối) nên bỏ `dist/` vào đâu chạy cũng được:
 
-- **GitHub Pages**: push code lên repo, hoặc chỉ đẩy nội dung `dist/` sang nhánh `gh-pages` / thư mục `docs/`.
-- **Netlify / Vercel / Cloudflare Pages**: kéo-thả thư mục `dist/` là xong, hoặc trỏ build command `npm run build`, output `dist`.
+- **Cloudflare Pages** (đang dùng): push code, hoặc kéo-thả `dist/`, được link kiểu `nhom-6.pages.dev`.
+- **Netlify / Vercel**: tương tự, trỏ build command `npm run build`, output `dist`.
+
+## Nộp qua GitHub Pages (home.html bọc iframe)
+
+Nếu yêu cầu nộp bằng link `*.github.io` trong khi site thật chạy trên Cloudflare Pages, dùng file **`home.html`** nằm ở gốc project. Đây là trang độc lập (không cần build, không phụ thuộc dự án), bọc toàn màn hình site pages.dev trong iframe:
+
+```
+github.io/home.html  ──iframe──▶  nhom-6.pages.dev
+```
+
+**Cách dùng:**
+
+1. Đưa `home.html` lên repo dùng GitHub Pages (nếu muốn là trang mặc định khi vào `github.io/<repo>/` thì đổi tên thành `index.html`).
+2. **Quan trọng:** phải `npm run build` rồi deploy lại lên Cloudflare Pages sau khi project đã có `src/lib/iframe-sync.js` (đã có sẵn). Script này khiến site con tự gửi URL hiện tại về `home.html` qua `postMessage` — nếu chưa deploy lại, site vẫn mở bình thường nhưng thanh địa chỉ sẽ không tự cập nhật khi bấm link bên trong trang.
+
+**Cơ chế đồng bộ URL (2 chiều):**
+
+- Trong iframe → thanh địa chỉ: mỗi lần chuyển trang bên trong site, `home.html` ghi đường dẫn vào tham số `?p=`, ví dụ `home.html?p=%2Fthanh-vien.html%3Fm%3Dle-cam-li`. Tiêu đề tab trình duyệt cũng được đồng bộ theo từng trang.
+- Thanh địa chỉ → iframe: mở link có `?p=...` (chia sẻ cho thầy/bạn) thì iframe mở đúng trang đó ngay từ đầu; bấm back/forward của trình duyệt cũng kéo iframe theo.
+
+Đổi tên miền pages.dev thì sửa dòng `const SITE = '...'` trong `home.html`.
 
 ## Ghi chú kỹ thuật
 

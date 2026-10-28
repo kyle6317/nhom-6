@@ -1,4 +1,5 @@
 import './style.css'
+import './lib/iframe-sync.js'
 import { assignments } from './lib/data.js'
 import { renderMarkdown } from './lib/md.js'
 import { esc, badgeClass } from './lib/utils.js'
