@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhóm 12 — Lập trình Web</title>
+    <meta name="description" content="Trang nộp bài tập của nhóm — danh sách thành viên và các bài tập đã thực hiện." />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="./assets/main-BHFowlHp.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/utils-MtbLcWG2.js">
+    <link rel="stylesheet" crossorigin href="./assets/style.css">
+  </head>
+  <body>
+    <header class="hero">
+      <img class="hero-img" src="./hero.jpg" alt="Ảnh nền của nhóm" />
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <p class="hero-kicker">Nhóm 12 · Lập trình Web</p>
+        <h1 class="hero-title">Bài tập của nhóm chúng mình</h1>
+        <p class="hero-sub">Danh sách thành viên và các bài tập đã thực hiện trong học phần. Chọn một mục bên dưới để xem chi tiết.</p>
+        <nav class="hero-actions">
+          <a class="btn btn-solid" href="#thanh-vien">Thành viên</a>
+          <a class="btn btn-ghost" href="#bai-tap">Bài tập</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="thanh-vien" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Thành viên nhóm</h2>
+            <p>Bấm vào mỗi bạn để xem trang cá nhân.</p>
+          </div>
+          <div class="grid" id="member-grid"></div>
+        </div>
+      </section>
+
+      <section id="bai-tap" class="section section-alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Danh sách bài tập</h2>
+            <p>Tóm tắt nhanh tiến độ của từng bài.</p>
+          </div>
+          <div class="rows" id="assignment-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 — Nhóm 12. Làm bằng Vite và Markdown.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
