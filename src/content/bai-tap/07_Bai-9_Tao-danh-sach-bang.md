@@ -5,8 +5,6 @@ desc: Tạo bảng HTML bằng thuộc tính style và viết chương trình Py
 
 # Bài 9: Tạo danh sách, bảng
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai9/Nhm6Tin.html>
 
 ## LUYỆN TẬP
 

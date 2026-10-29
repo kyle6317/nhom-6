@@ -5,9 +5,6 @@ desc: Quan hệ cha – con giữa các phần tử HTML, vẽ cây thông tin t
 
 # Bài 7: HTML và cấu trúc trang web
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai7/Nhm6Tin.html>
-
 ## LUYỆN TẬP
 
 ### Câu 1. Tìm ví dụ về phần tử HTML không thể lồng nhau, tức là không thể có quan hệ cha – con trong cây thông tin của trang web.

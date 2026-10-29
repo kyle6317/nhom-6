@@ -5,9 +5,6 @@ desc: Dùng thẻ strong, em, h1, h2, ul, li để định dạng văn bản và
 
 # Bài 8: Định dạng văn bản
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai8/Nhm6Tin.html>
-
 ## LUYỆN TẬP
 
 ### Luyện tập 1. Hãy sửa lại phần tử sau để làm nổi bật ý chính của câu

@@ -5,9 +5,6 @@ desc: Chia sẻ tệp, thư mục, máy in và toàn bộ ổ đĩa qua mạng L
 
 # Bài 5: Thực hành chia sẻ tài nguyên trên mạng
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai5/Nhm6Tin.html>
-
 ## LUYỆN TẬP
 
 ### Câu 1. Thực hành chia sẻ tệp và thư mục

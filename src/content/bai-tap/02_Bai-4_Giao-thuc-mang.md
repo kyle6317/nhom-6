@@ -5,9 +5,6 @@ desc: Quy tắc gọi điện thoại minh họa giao thức, chuyển đổi đ
 
 # Bài 4: Giao thức mạng
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai4/Nhm6Tin.html>
-
 ## LUYỆN TẬP
 
 ### Câu 1. Nêu các quy tắc khi gọi điện thoại bằng máy để bàn để làm rõ giao thức gọi điện thoại.

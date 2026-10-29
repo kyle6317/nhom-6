@@ -5,9 +5,6 @@ desc: Nhận biết hub, switch, WAP, router và cách kết nối Internet tron
 
 # Bài 3: Một số thiết bị mạng thông dụng
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai3/Nhm6Tin.html>
-
 ## LUYỆN TẬP
 
 ### Câu 1. Muốn kết nối các máy tính trong phạm vi gia đình thành một mạng, nên dùng loại thiết bị kết nối nào?

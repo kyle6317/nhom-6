@@ -5,9 +5,6 @@ desc: Trải nghiệm giao tiếp trực tuyến, lợi ích của không gian m
 
 # Bài 6: Giao tiếp và ứng xử trên không gian mạng
 
-> **Nhóm 6 — Tin học 6** · Luyện tập & Vận dụng
-> Link nộp bài: <https://kyle6317.github.io/nhom-6/bai6/Nhm6Tin.html>
-
 ## LUYỆN TẬP
 
 ### Câu 1. Hãy kể về một trải nghiệm giao tiếp trong không gian mạng mà em từng tham gia.
