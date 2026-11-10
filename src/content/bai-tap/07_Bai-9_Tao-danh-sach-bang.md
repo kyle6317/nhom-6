@@ -77,6 +77,3 @@ with open("data_table.html", "w") as file:
 print("Tạo tệp HTML thành công!")
 ```
 
----
-
-*© 2026 - NHOM 6*

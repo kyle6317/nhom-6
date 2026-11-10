@@ -104,6 +104,3 @@ Nếu hệ thống yêu cầu, người dùng cần xác thực bằng tài kho�
 
 Chia sẻ toàn bộ ổ đĩa cho phép máy tính khác truy cập nhiều tệp và thư mục trong ổ đĩa đó. Vì vậy, cần thiết lập quyền phù hợp để bảo vệ dữ liệu, tránh chia sẻ thông tin riêng tư hoặc dữ liệu quan trọng ngoài ý muốn.
 
----
-
-*© 2026 - NHOM 6*

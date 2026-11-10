@@ -56,6 +56,3 @@ Mạng máy tính của trường học có thể sử dụng các thiết bị 
 
 > **Lưu ý:** Chất lượng kết nối phụ thuộc vào vùng phủ sóng di động, số lượng người sử dụng và thiết bị được lắp đặt trên xe.
 
----
-
-*© 2026 - NHOM 6*

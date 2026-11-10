@@ -130,7 +130,3 @@ Do đề bài chưa cung cấp Hình 7.7, dưới đây là mẫu HTML minh họ
 </body>
 </html>
 ```
-
----
-
-*© 2026 - NHOM 6*

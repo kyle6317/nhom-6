@@ -81,6 +81,3 @@ Phần tử cần sửa:
 - Định dạng chữ thường
 - Định dạng cỡ chữ
 
----
-
-*© 2026 - NHOM 6*

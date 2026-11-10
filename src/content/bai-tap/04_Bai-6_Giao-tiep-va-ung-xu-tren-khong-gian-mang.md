@@ -49,7 +49,3 @@ Nhờ giao tiếp trong không gian mạng, mọi người có thể trao đổi
 >
 > **Thân mến,**
 > **Hoà**
-
----
-
-*© 2026 - NHOM 6*

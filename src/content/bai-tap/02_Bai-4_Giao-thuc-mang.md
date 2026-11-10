@@ -140,6 +140,3 @@ Kết quả trên cho biết máy tính nhận được phản hồi. Giá trị
 
 Nếu xuất hiện thông báo hết thời gian chờ hoặc không thể tìm thấy tên máy chủ, có thể kết nối mạng gặp vấn đề, máy chủ không phản hồi hoặc DNS không phân giải được tên miền.
 
----
-
-*© 2026 - NHOM 6*
